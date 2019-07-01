@@ -1,0 +1,169 @@
+<body>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+
+        <h1> Employee Details</h1>
+        <!-- <div class="card-content white-text">
+        <div class="row">
+          <div class="col-s5"> -->
+
+        <!-- <form #employeeForm="ngForm" (ngSubmit)="onSubmit(employeeForm)">
+   
+               <label>Name :</label>
+                      <input type="text" Name="Name" #Name="ngModel" [(ngModel)]="employeeService.selectedEmployee.Name"class="form-control text" placeholder="Enter Name" />
+
+            </form>   -->
+
+        <form [formGroup]="form1" (ngSubmit)="onSubmit(form1.value)">
+
+
+          <div class="form-group">
+            <label>Name :</label>
+            <input type="text" formControlName="Name" class="form-control text" placeholder="Enter Name" id="Name" />
+          </div>
+
+          <div *ngIf="form1.get('Name').touched && form1.get('Name').invalid" class="alert alert-danger">
+            <div *ngIf="form1.get('Name').hasError('required')">
+              Name is required !
+            </div>
+
+            <div *ngIf="form1.get('Name').hasError('pattern')">
+              Invalid Name !
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Designation :</label>
+            <select class="form-control text" >
+              <option value="Junior Software Developer">Junior Software Developer</option>
+              <option value="Senior Software Developer">Senior Software Developer</option>
+              <option value="Junior Software Consultant">Junior Software Consultant</option>
+              <option value="Senior Software Consultant">Senior Software Consultant</option>
+              <option value="Manager">Manager</option>
+              <option value="HR">HR</option>
+            </select>
+          </div>
+
+
+
+          <div class="form-group">
+            <label>Phone Number :</label>
+            <input type="text" formControlName="PhoneNumber" class="form-control text"
+              placeholder="Enter Phone Number" id="Ph"/>
+          </div>
+
+          <div *ngIf="form1.get('PhoneNumber').touched && form1.get('PhoneNumber').invalid" class="alert alert-danger">
+            <div *ngIf="form1.get('PhoneNumber').hasError('required')">
+              Phone Number is required !
+            </div>
+            <div
+              *ngIf="form1.get('PhoneNumber').hasError('maxlength') && !form1.get('PhoneNumber').hasError('pattern')">
+              Fill Maximum 10 Digit Only !
+            </div>
+
+            <div
+              *ngIf="form1.get('PhoneNumber').hasError('minlength') && !form1.get('PhoneNumber').hasError('pattern')">
+              Fill Minimum 10 Digit Only !
+            </div>
+
+            <div *ngIf="form1.get('Name').hasError('pattern')">
+              Invalid Name !
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>City :</label>
+            <input type="text" formControlName="City" class="form-control text" placeholder="Enter city" id="City" >
+          </div>
+
+          <div *ngIf="form1.get('City').touched && form1.get('City').invalid" class="alert alert-danger">
+            <div *ngIf="form1.get('City').hasError('required')">
+              City is required !
+            </div>
+            <div *ngIf="form1.get('City').hasError('pattern')">
+              Invalid City !
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Company Name :</label>
+            <input type="text" formControlName="CompanyName" class="form-control text" placeholder="Enter Company Name" id="CName">
+          </div>
+
+          <div *ngIf="form1.get('CompanyName').touched && form1.get('CompanyName').invalid" class="alert alert-danger">
+            <div *ngIf="form1.get('CompanyName').hasError('required')">
+              Company Name is required !
+            </div>
+            <div *ngIf="form1.get('CompanyName').hasError('pattern')">
+              Invalid Company Name !
+            </div>
+          </div>
+
+
+          <div class="form-group">
+
+            <button type="submit" class="btn btn-primary" value="Save" [disabled]="form1.invalid" id="btn" >Save</button>
+
+          </div>
+
+          <div class="xyz">
+              <ol>
+                <li *ngFor="let t of list1" [value]="t">{{t}}</li>
+              </ol>
+            </div>
+
+        </form>
+
+      </div>
+
+   
+      
+  <div class="col-md-6 col-md-offset-3">
+
+    <h1>Employee Detail Table</h1>
+    <br/><br/>
+ 
+      Search : <input type="text" placeholder="Search Employee" [(ngModel)]="filterText" name="filterText"/>
+      <br/><br/>
+  
+          <table class="table table-trapped" id="table">
+            <thead>
+            <tr>
+              <th>Name</th>
+              <th>Designation</th>
+              <th>Phone Number</th>
+              <th>City</th>
+              <th>Company Name</th>
+            </tr>
+            </thead>
+         
+  
+          <tbody>
+            <tr *ngFor="let employee of (employees |  searchfilter: filterText)">            
+              <td>{{employee.Name}}</td>
+              <td>{{employee.Designation}}</td>
+              <td>{{employee.PhoneNumber}}</td>
+              <td>{{employee.City}}</td>
+              <td>{{employee.CompanyName}}</td>
+            </tr>
+          </tbody>
+        </table>
+  
+  
+    </div>
+    </div>
+  </div>
+
+
+
+
+   
+
+
+  <!-- </div>
+  </div>
+</div> -->
+
+</body>

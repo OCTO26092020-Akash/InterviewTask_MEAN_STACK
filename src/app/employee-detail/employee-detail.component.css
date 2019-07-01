@@ -1,0 +1,41 @@
+@import 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css';
+
+
+
+
+h1{
+
+	text-align: center;
+}
+
+.jumbotron-fluid{
+
+	background-color: brown;
+	color: white;
+}
+
+.text
+{
+	height:43px;
+}
+
+label
+{
+	font-size:18px;
+
+}
+
+.btn-primary
+{
+	border-radius:0px;
+	padding:10px;
+	width:48%;
+}
+
+
+.btn-danger
+{
+	border-radius:0px;
+	padding:10px;
+	width:48%;
+}
